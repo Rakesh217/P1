@@ -4,7 +4,7 @@ namespace P1
 {
     class Program
     {
-        public decimal fee(double gpa){
+        static decimal fee(double gpa){
             var semFee=0.0;
             if(gpa>=3.3 && gpa <=4.0){
                 semFee = 4321.12*0.4;
@@ -34,12 +34,17 @@ namespace P1
                 Console.WriteLine($"Enter your gpa between 0 and 4: ");
                 var ans = Console.ReadLine();
                 gpa = Convert.ToDouble(ans);
-                Program l = new Program();
+            
             if(gpa>=3.3 && gpa <=4.0){
-                Console.WriteLine($"You are eligible for scolorship of: {l.fee(gpa)}.");
+                Console.WriteLine($"You are eligible for scolorship of: {Program.fee(gpa)}.");
+                Console.WriteLine($"Fee to be paid: {4321.12m-Program.fee(gpa)}.");
             }
             else if(gpa >0.0 && gpa < 3.3){
-                     Console.WriteLine($"You need to pay fee of: {l.fee(gpa)}.");    
+                     Console.WriteLine($"You need to pay fee of: {Program.fee(gpa)}.");    
+            }
+            else{
+                Console.WriteLine("Wrong Input");
+                break;
             }
             Console.WriteLine($"Enter your grade: ");
             gradeChar = Console.ReadLine();
